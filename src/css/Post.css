@@ -1,0 +1,83 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    border: 1px soli lightgray;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.post-info{
+    display: flex;
+    align-items: center;
+    gap:8px;
+    margin-bottom: 10px;
+}
+.post-info h5{
+    cursor: pointer;
+}
+/* Add hover effect for interactive elements */
+.post:hover{
+    border: 0.5px solid gray;
+}
+.post-info>h5:hover{
+   border-bottom: 1px solid rgb(18, 18, 176);
+   color: rgb(18, 18, 176);
+}
+.post-body{
+    display: flex;
+    flex-direction: column;
+}
+.post-ques{
+    display: flex;
+    justify-content: space-between;
+}
+.post-ques>h4:hover{
+   cursor: pointer;
+}
+.post-button{
+    padding: 0.5rem 0.5rem;
+    background-color:rgb(10, 10, 212);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.post-button:hover{
+    background-color:rgb(7, 7, 142);
+}
+.post-answer p{
+    text-align: start;
+    margin-bottom: 10px;
+}
+.new-ans{
+    display: flex;
+    justify-content: space-between;
+}
+.post-answer img{
+    object-fit: contain;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.post-footer{
+    display: flex;
+    align-items: center;
+    margin-top:10px;
+}
+.post-action{
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    margin-right: 40px;
+    
+    justify-content: space-around;
+    padding: 5px;
+    border-radius: 33px;
+}
+.post-action i{
+    margin-right: 40px;
+    cursor: pointer;
+}
