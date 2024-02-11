@@ -9,7 +9,7 @@ const ContentFeed = ({ search,type }) => {
   const { posts } = useContext(QuestionContext);
 
 // Retrieving username from local storage
-  const username = localStorage.getItem("username");
+  const username = localStorage.getItem("currentuser");
 
  
  // Filter Data based on search query

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, screen } from '@testing-library/react';
-import SidebarOptions from '../components/sidebarOptions'
+import SidebarOptions from '../components/SidebarOptions'
 
 
 test('renders SidebarOptions component', () => {

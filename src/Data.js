@@ -4,7 +4,7 @@ const Data = [
       id: 0,
       subject: 'HTML',
       question: 'What does HTML stand for?',
-      answer: ['HTML stands for HyperText Markup Language.']
+      answer: ['HTML stands for HyperText Markup Language.It is the standard markuplanguage for creating web pages and web applications.']
       
     },
     {

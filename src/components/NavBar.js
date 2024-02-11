@@ -2,11 +2,12 @@ import { useState } from "react";
 import "../css/NavBar.css";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import QuestionContext from "../QuestionContext";
 
 function NavBar({ setSearch }) {
+  const history = useNavigate();
   // State for controlling the modal
   const [modelOpen, setModelOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
@@ -17,7 +18,7 @@ function NavBar({ setSearch }) {
   const [answerInput, setAnswerInput] = useState("");
  
   // Retrieving username from local storage
-  const username = localStorage.getItem("username");
+  const username = localStorage.getItem("currentuser");
 
   // Function to handle saving questions and answers
   const handleSave = () => {
@@ -25,23 +26,24 @@ function NavBar({ setSearch }) {
   setAnswer(answerInput);
 
     // Adding post using context function
-    addPost(questionInput, answerInput);
-// Retrieve existing questions from local storage or initialize to empty array
-const existingQuestions = JSON.parse(localStorage.getItem('questions')) || [];
-
-// Add the new question and answer to the existing list
-const newQuestion = { question: questionInput, answer: answerInput };
-const updatedQuestions = [...existingQuestions, newQuestion];
-
-// Store the updated list back to local storage
-localStorage.setItem('questions', JSON.stringify(updatedQuestions));
+    addPost(questionInput, answerInput)
     
     setModelOpen(false);
     setAnswerInput("");
     setQuestionInput("");
   };
  
+  const handleLogout = () => {
+    let activeuser=localStorage.getItem('currentuser')
+    let data=localStorage.getItem(JSON.parse(activeuser))
+    let newdata=JSON.parse(data)
+    newdata.active=false
+   let actuser=JSON.parse(activeuser)
+  localStorage.setItem(actuser,JSON.stringify(newdata))
+
   
+history("/")
+  };
   // Function to handle search
   const handleSearch = () => {
     setSearch(searchInput);
@@ -58,13 +60,13 @@ localStorage.setItem('questions', JSON.stringify(updatedQuestions));
             <Link to="/Home">Home</Link>
           </li>
           <li>
-            <Link to="/">Login</Link>
-          </li>
-          <li>
             <a href="#home">
               <i class="fa-regular fa-user"></i>
               {username}
             </a>
+          </li>
+          <li>
+            <Link to='/' onClick={handleLogout}>Logout</Link> 
           </li>
         </ul>
       </nav>

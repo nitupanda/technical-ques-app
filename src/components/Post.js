@@ -32,7 +32,7 @@ const Post = ({ postId, username }) => {
    // Function to handle adding an answer
   const addAnswerClick = (e) => {
     e.preventDefault();
-    const updatedAnswers = [...addAns,{ answer, email: localStorage.getItem("username") }];
+    const updatedAnswers = [...addAns,{ answer, email: localStorage.getItem("currentuser") }];
     setAddAnswer(updatedAnswers);
     setAnswer("");
     setModelOpen(false);

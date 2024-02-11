@@ -13,6 +13,7 @@ This is a Q&A application where users can ask questions on various technical top
 - Answer Questions: Users can provide answers to existing questions.
 - Category Filtering: Questions can be filtered by categories such as HTML, CSS, JavaScript, React.js, Angular, etc.
 - Like/Dislike Answers: Users can express their opinion on answers by liking or disliking them.
+- Initially dummy data is beign displayed which is stored in Data file.
 
 ## Usage
 
