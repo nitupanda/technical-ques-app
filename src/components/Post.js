@@ -56,7 +56,7 @@ const Post = ({ postId}) => {
     <div className="post">
       {data && (
         <div className="post-info">
-          <h5>{data.postedby}</h5>
+          <h4>{data.postedby}</h4>
         </div>
       )}
       {data && (
@@ -70,8 +70,8 @@ const Post = ({ postId}) => {
           <div className="post-answer">
             {data.answer.map((item, index) => (
               <div key={index} className="new-ans">
-                <span>{item.content}</span>
-                <span style={{ color: 'blue' }}>{item.postedby}</span>
+               {item.content && <span><b>A: </b> {item.content}</span>} 
+               {item.content && <span style={{ color: 'blue' }}>{item.postedby}</span>}
               </div>
             ))}
           </div>
@@ -99,7 +99,7 @@ const Post = ({ postId}) => {
       <Modal open={modelOpen} onClose={() => setModelOpen(false)} center closeOnOverlayClick={false}>
         <div className="modal">
           <h3>Enter your answer</h3>
-          <input type="textarea" onChange={(e) => setAnswer(e.target.value)} value={answerr} />
+          <textarea  onChange={(e) => setAnswer(e.target.value)} value={answerr} />
           <button onClick={addAnswerClick}>Save</button>
         </div>
       </Modal>

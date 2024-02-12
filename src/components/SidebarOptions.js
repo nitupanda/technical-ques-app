@@ -6,7 +6,7 @@ import "../css/SidebarOptions.css";
 const SidebarOptions = ({ onSelectCategory }) => {
   const [activeCategory, setActiveCategory] = useState(null);
   // Array of categories
-  const categories = ['HTML', 'CSS', 'Javascript', 'ReactJs', 'Angular'];
+  const categories = ['HTML', 'CSS', 'Javascript', 'ReactJs', 'Angular','Others'];
 
   const handleCategoryClick = (category) => {
     onSelectCategory(category);

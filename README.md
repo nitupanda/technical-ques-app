@@ -12,7 +12,7 @@ This is a Q&A application where users can ask questions on various technical top
 - Add Question:  Users can add new questions to the platform.
 - Answer Questions: Users can provide answers to existing questions.
 - Category Filtering: Questions can be filtered by categories such as HTML, CSS, JavaScript, React.js, Angular, etc.
-- Like/Dislike Answers: Users can express their opinion on answers by liking or disliking them.
+- Like/Dislike Questions: Users can express their opinion on questions by liking or disliking them.
 
 ## Usage
 
@@ -32,7 +32,12 @@ This is a Q&A application where users can ask questions on various technical top
 - Jest: Testing framework for unit testing React components.
 - React Testing Library: For testing React components in a user-centric way.
 - React Responsive Modal: For displaying modal dialogs in a responsive manner.
+- Local storage to store the data.
 
 ## Testing
 
-Run unit tests using `npm test`. The tests cover components such as ContentFeed, SidebarOptions etc.
+Run unit tests using `npm test`.The tests cover components such as SidebarOptions.
+
+## Features to be added
+
+If integrate with API features like edit,delete and optimisation techniques like Debouncing can be added.

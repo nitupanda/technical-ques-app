@@ -86,8 +86,7 @@ function NavBar({ setSearch }) {
           </li>
           <li>
             <a href="#home">
-              <i className="fa-regular fa-user"></i>
-              {JSON.parse(username)}
+              <i className="fa-regular fa-user"></i> {JSON.parse(username)}
             </a>
           </li>
         </ul>
@@ -109,13 +108,11 @@ function NavBar({ setSearch }) {
       </button>
 
       <li style={{ listStyleType: "none" }}>
-    {/* <Link style={{ color: "white" }} onClick={handleLogout}>
-        Logout
-    </Link> */}
-    <li>
-            <Link to='/' style={{ color: "white" }} onClick={handleLogout}>Logout</Link> 
+       <li>
+            <Link to='/'
+             style={{ color: "white" }} onClick={handleLogout}>Logout</Link> 
           </li>
-</li>
+     </li>
           
 
       {/* Modal for adding question */}
@@ -147,6 +144,7 @@ function NavBar({ setSearch }) {
               <option value="JAVASCRIPT">JAVASCRIPT</option>
               <option value="ReactJs">ReactJs</option>
               <option value="Angular">Angular</option>
+              <option value="Others">Others</option>
               </select><br/>
             <br/>
           <h3>Add question</h3>
@@ -159,7 +157,7 @@ function NavBar({ setSearch }) {
             />
             <br />
             <p>
-              asked by-{" "}
+              asked by-
               <span className="name" style={{ color: "blue" }}>
                 {username}
               </span>
