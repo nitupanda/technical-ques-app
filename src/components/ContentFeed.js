@@ -1,34 +1,49 @@
-import React, { useContext} from "react";
-import "../css/ContentFeed.css";
-import Post from "./Post";
-import Data from "../Data";
-import QuestionContext from "../QuestionContext";
 
-const ContentFeed = ({ search,type }) => {
-  // Extracting question and answer from context
-  const { posts } = useContext(QuestionContext);
+import React, { useEffect, useState } from 'react';
+import '../css/ContentFeed.css';
+import Post from './Post';
 
-// Retrieving username from local storage
-  const username = localStorage.getItem("currentuser");
+const ContentFeed = ({ search, selectedCategory }) => {
 
- 
- // Filter Data based on search query
- const filteredData = posts.filter((item) => {
-  const isQuestionMatch = typeof item.question === "string" && item.question.toLowerCase().includes(search.toLowerCase());
-  const isTypeMatch = type ? item.subject === type : true;
-  return isQuestionMatch && isTypeMatch;
-});
+  const [allQuestions, setAllQuestions] = useState([]);
+  const [filteredQuestions, setFilteredQuestions] = useState([]);
+  const username = localStorage.getItem('currentuser');
 
-  console.log(Data);
- 
+  useEffect(() => {
+    const storedQuestions = localStorage.getItem("questions");
+    if (storedQuestions !== null) {
+      const parsedQuestions = JSON.parse(storedQuestions);
+      setAllQuestions(parsedQuestions);
+      filterQuestions(parsedQuestions, search, selectedCategory);
+    }
+  }, [search, selectedCategory]); // Update when search query or selected category changes
+
+  const filterQuestions = (questions, query, category) => {
+    let filteredData = questions;
+    if (category) {
+      filteredData = filteredData.filter(question => question.category === category);
+    }
+    if (query) {
+      filteredData = filteredData.filter(question =>
+        question.question.toLowerCase().includes(query.toLowerCase())
+      );
+    }
+    setFilteredQuestions(filteredData);
+  };
 
   return (
     <div className="feed">
-     {filteredData.map((item) => (
-        <Post key={item.id} postId={item.id} username={username} />
-      ))}
+      {filteredQuestions.length === 0 ? (
+        <div className="no-data-message">
+          <h1>No questions available. Post your questions now!</h1>
+        </div>
+      ) : (
+        filteredQuestions.map(item => <Post key={item.id} postId={item.id} username={username} />)
+      )}
     </div>
   );
 };
 
 export default ContentFeed;
+
+
